@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import web.service.CarService;
 import web.service.CarServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class CarController {
-    private final CarServiceImpl carService;
+    private final CarService carService;
 
     @Autowired
     public CarController(CarServiceImpl carService) {
