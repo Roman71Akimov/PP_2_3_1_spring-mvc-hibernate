@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import web.dao.UserDAOImpl;
 import web.entity.User;
 import web.service.UserService;
+import web.service.UserServiceImpl;
 
-import java.util.List;
+
 
 @Controller
 public class UserController {
@@ -50,6 +52,8 @@ public class UserController {
         userService.delete(id);
         return "redirect:/users";
     }
+
+
 }
 
 

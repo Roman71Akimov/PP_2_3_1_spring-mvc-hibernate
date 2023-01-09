@@ -16,9 +16,9 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-@PropertySource("classpath: db.properties")
+@PropertySource("classpath:db.properties")
 @EnableTransactionManagement
-@ComponentScan(value = "web")
+//@ComponentScan(value = "web")
 public class HiberConfig {
     @Autowired
     private Environment env;
@@ -42,7 +42,7 @@ public class HiberConfig {
         props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
 
         factoryBean.setDataSource(getDataSource());
-        factoryBean.setPackagesToScan(env.getProperty("db.entity.package"));
+        factoryBean.setPackagesToScan("web");
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         factoryBean.setJpaProperties(props);
         return factoryBean;
