@@ -1,9 +1,8 @@
 package web.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import web.dao.UserDAO;
-import web.dao.UserDAOImpl;
 import web.entity.User;
 import javax.transaction.Transactional;
 import java.util.List;
@@ -43,9 +42,5 @@ public class UserServiceImpl implements UserService{
     userDAO.update(user);
     }
 
-//    public static void main(String[] args) {
-//        UserService userService1 = new UserServiceImpl(new UserDAOImpl());
-//        userService1.save(new User("roma", "akimov", "123123"));
-//        System.out.println(userService1.showAllUsers());
-//    }
+
 }

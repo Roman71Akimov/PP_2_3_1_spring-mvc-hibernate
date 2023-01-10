@@ -4,10 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import web.dao.UserDAOImpl;
 import web.entity.User;
 import web.service.UserService;
-import web.service.UserServiceImpl;
+
 
 
 
@@ -35,11 +34,11 @@ public class UserController {
         return "redirect:/users";
     }
     @GetMapping("/{id}/edit")
-    public String editUser(@PathVariable("id") Model model, Long id){
+    public String editUser(@PathVariable("id") Long id, Model model){
         model.addAttribute("user", userService.getUser(id));
     return "edit";
     }
-    @PatchMapping("/{id}")
+    @PostMapping("/{id}")
     public String saveEditUser(@ModelAttribute("user") User user){
     userService.update(user);
     return "redirect:/users";
